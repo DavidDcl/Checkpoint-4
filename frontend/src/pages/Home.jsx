@@ -7,7 +7,7 @@ export default function Home() {
       <div className=" w-5/12 ">
         <div className="text-left text-8xl flex flex-col mx-5 gap-8">
           <span className="text-stone-200">SMILE</span>
-          <span className="text-green-400">BRIGHTER</span>
+          <span className="text-cyan-200">BRIGHTER</span>
           <span className="text-stone-200">WITH US</span>
         </div>
         <div className="mx-5 my-5 ">
@@ -15,16 +15,16 @@ export default function Home() {
         </div>
       </div>
       <div className="w-5/12">
-        <div className="text-center mx-5 my-5 flex flex-col gap-2">
+        <div className="text-center mx-5 my-5 flex flex-col gap-2 ">
           <p className="text-3xl text-left text-stone-200">
             Ensure the health and protection of your smile with our extense
             network dentist across the nation. Our services offers prompt
             answers and personalized attention
           </p>
-          <div className="flex my-5">
+          <div className="flex mx-2 my-5">
             <button
               type="button"
-              className="btn btn-lg border-none rounded-2xl font-bold text-zinc-800 bg-green-400 "
+              className="btn bg-cyan-500 text-slate-500 text-lg font-bold"
             >
               Book Now
             </button>
