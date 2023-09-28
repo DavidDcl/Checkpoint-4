@@ -23,6 +23,7 @@ function Appointment() {
               firstName={doctor.first_name}
               surname={doctor.surname}
               profilePic={doctor.profile_pic}
+              bio={doctor.bio}
             />
           </div>
         ))}

@@ -1,9 +1,9 @@
 import dentist1 from "../assets/dentist1.jpg";
 import dentist3 from "../assets/dentist3.jpg";
 
-export default function Home() {
+function Home() {
   return (
-    <div className=" my-5 flex justify-between mx-5">
+    <div className=" my-5 flex justify-between mx-5 mt-14">
       <div className=" w-5/12 ">
         <div className="text-left text-8xl flex flex-col mx-5 gap-8">
           <span className="text-stone-200">SMILE</span>
@@ -37,3 +37,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

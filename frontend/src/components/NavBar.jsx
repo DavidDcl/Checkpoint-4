@@ -1,6 +1,18 @@
 /*eslint-disable*/
-import { Link } from "react-router-dom";
-function NavBar() {
+import { Link, useNavigate } from "react-router-dom";
+
+import { useCurrentUserContext } from "./../Contexts/CurrentUserContext";
+function NavBar({ toggleModalConnexion }) {
+  const { user } = useCurrentUserContext();
+  const navigate = useNavigate();
+  const handleLogIn = () => {
+    if (user) {
+      navigate("/profil");
+    } else {
+      toggleModalConnexion();
+    }
+  };
+
   return (
     <div className="navbar bg-slate-200 ">
       <div className="navbar-start ">
@@ -42,7 +54,42 @@ function NavBar() {
           Dinex
         </a>
       </div>
-      <div className="navbar-end"></div>
+      <div className="navbar-end mx-5 items-center text-xl">
+        <button
+          onClick={handleLogIn}
+          type="button"
+          className="btn bg-slate-500 text-slate-200 text-lg font-bold"
+        >
+          {user ? (
+            <svg
+              width="45px"
+              height="45px"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              color="#E5E9E7"
+            >
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"
+                stroke="#E5E9E7"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4.271 18.346S6.5 15.5 12 15.5s7.73 2.846 7.73 2.846M12 12a3 3 0 100-6 3 3 0 000 6z"
+                stroke="#E5E9E7"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ) : (
+            <span>Log In</span>
+          )}
+        </button>
+      </div>
     </div>
   );
 }
