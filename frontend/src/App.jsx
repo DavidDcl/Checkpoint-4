@@ -26,7 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <CurrentUserContextProvider>
-        <div className="bg-slate-500 h-screen w-full">
+        <div className="bg-slate-500 min-h-screen overflow-hidden">
           <NavBar toggleModalConnexion={toggleModalConnexion} />
           {modalConnexionIsVisible && (
             <ModalConnexion
@@ -40,11 +40,13 @@ function App() {
               toggleModalInscritpion={toggleModalInscritpion}
             />
           )}
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/appointments" element={<Appointments />} />
             <Route path="/profil" element={<Profil />} />
           </Routes>
+
           <Footer />
         </div>
       </CurrentUserContextProvider>
