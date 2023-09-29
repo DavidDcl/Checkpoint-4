@@ -23,4 +23,8 @@ const readAllByUserId = (userId) => {
   return database.query(qeury, [userId]);
 };
 
-module.exports = { createOne, readOne, readAllByUserId };
+const readAllByDoctorId = (doctorId) => {
+  const qeury = `SELECT r.id, r.date, r.start_time, r.end_time, u.first_name, u.surname FROM reservations r join users u ON r.user_id = u.id WHERE r.doctor_id = ?`;
+  return database.query(qeury, [doctorId]);
+};
+module.exports = { createOne, readOne, readAllByUserId, readAllByDoctorId };

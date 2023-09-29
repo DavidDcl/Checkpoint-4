@@ -13,6 +13,7 @@ function Profil() {
     firstName: user.firstName,
     surname: user.surname,
     id: user.id,
+    roles: user.roles,
   });
   const navigate = useNavigate();
 

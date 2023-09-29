@@ -2,6 +2,7 @@ const {
   createOne,
   readOne,
   readAllByUserId,
+  readAllByDoctorId,
 } = require("../models/appointmentManager");
 
 const insertAppointment = (req, res) => {
@@ -45,7 +46,25 @@ const getAppointmentByUserId = (req, res) => {
     });
 };
 
+const getAppointmentByDoctorId = (req, res) => {
+  const doctorId = req.params.id;
+
+  readAllByDoctorId(doctorId)
+    .then(([appointment]) => {
+      if (appointment[0] === null) {
+        res.status(400);
+      } else {
+        res.status(200).send(appointment);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Error retrieving appointment");
+    });
+};
+
 module.exports = {
   insertAppointment,
   getAppointmentByUserId,
+  getAppointmentByDoctorId,
 };
