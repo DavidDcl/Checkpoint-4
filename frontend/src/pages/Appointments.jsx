@@ -24,6 +24,7 @@ function Appointment() {
               surname={doctor.surname}
               profilePic={doctor.profile_pic}
               bio={doctor.bio}
+              doctorId={doctor.id}
             />
           </div>
         ))}

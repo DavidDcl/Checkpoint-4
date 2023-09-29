@@ -10,6 +10,7 @@ import ModalConnexion from "./components/ModalConnexion";
 import ModalInscription from "./components/ModalInscription";
 import { CurrentUserContextProvider } from "./Contexts/CurrentUserContext";
 import Profil from "./pages/Profil";
+import UserAppointments from "./pages/UserAppointments";
 
 function App() {
   const [modalConnexionIsVisible, setModalConnexionIsVisible] = useState(false);
@@ -45,6 +46,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/appointments" element={<Appointments />} />
             <Route path="/profil" element={<Profil />} />
+            <Route path="/myAppointments" element={<UserAppointments />} />
           </Routes>
 
           <Footer />

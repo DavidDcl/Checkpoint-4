@@ -39,4 +39,12 @@ router.post(
 
 router.get("/logout", logout);
 
+const {
+  insertAppointment,
+  getAppointmentByUserId,
+} = require("./controllers/appointmentsControllers");
+
+router.post("/create-appointment", insertAppointment);
+router.get("/appointments/:id", getAppointmentByUserId);
+
 module.exports = router;

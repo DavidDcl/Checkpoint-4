@@ -43,9 +43,19 @@ function NavBar({ toggleModalConnexion }) {
             <li>
               <Link to="/">Homepage</Link>
             </li>
-            <li>
-              <Link to="/appointments">Appointment</Link>
-            </li>
+            {user.roles === "doctor" ? (
+              " "
+            ) : (
+              <li>
+                <Link to="/appointments">Appointments</Link>
+              </li>
+            )}
+
+            {user.roles === "userStandard" && (
+              <li>
+                <Link to="/myAppointments">My Appointments</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
