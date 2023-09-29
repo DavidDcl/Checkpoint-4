@@ -1,8 +1,17 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
+import AppointmentModal from "./AppointmentModal";
 
-function DoctorCard({ surname, firstName, profilePic, bio }) {
+function DoctorCard({ surname, firstName, profilePic, bio, doctorId }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState([]);
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+    setSelectedDoctor(doctorId);
+  };
+
   return (
-    <div className="card w-full sm:w-96 bg-slate-200 shadow-xl mx-3 ">
+    <div className="card w-full sm:w-96 bg-slate-200 shadow-xl mx-3  ">
       <figure className="w-full h-48 sm:h-full">
         <img
           src={`${
@@ -23,12 +32,22 @@ function DoctorCard({ surname, firstName, profilePic, bio }) {
         </div>
         <div className="card-actions justify-center sm:justify-end mt-3">
           <button
+            onClick={handleModal}
             type="button"
             className="btn bg-slate-500 text-slate-200 text-base sm:text-lg font-bold"
           >
             Book Now!
           </button>
+          {doctorId}
         </div>
+        {isModalOpen && (
+          <AppointmentModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            selectedDoctor={selectedDoctor}
+            doctorId={doctorId}
+          />
+        )}
       </div>
     </div>
   );
@@ -39,6 +58,7 @@ DoctorCard.propTypes = {
   firstName: PropTypes.string.isRequired,
   profilePic: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
+  doctorId: PropTypes.number.isRequired,
 };
 
 export default DoctorCard;

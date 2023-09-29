@@ -13,6 +13,7 @@ function Profil() {
     firstName: user.firstName,
     surname: user.surname,
     id: user.id,
+    roles: user.roles,
   });
   const navigate = useNavigate();
 
@@ -66,9 +67,7 @@ function Profil() {
               type="text"
               value={formData.firstName}
               onChange={handleFirstNameChange}
-              placeholder={
-                user.first_name ? user.first_name : "Your first name"
-              }
+              placeholder={user.firstName ? user.firstName : "Your first name"}
               className="input placeholder:font-bold bg-neutral-300 w-full focus:border-none focus:bg-blue text-stone-900 focus:text-stone-900 placeholder-stone-900 focus:placeholder-stone-900"
             />
           </div>

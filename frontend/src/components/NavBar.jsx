@@ -12,6 +12,7 @@ function NavBar({ toggleModalConnexion }) {
       toggleModalConnexion();
     }
   };
+  console.log(user);
 
   return (
     <div className="navbar bg-slate-200 ">
@@ -43,9 +44,23 @@ function NavBar({ toggleModalConnexion }) {
             <li>
               <Link to="/">Homepage</Link>
             </li>
-            <li>
-              <Link to="/appointments">Appointment</Link>
-            </li>
+
+            {user?.roles === "doctor" && (
+              <li>
+                <Link to="/doctor-appointments">Doctor Appointments</Link>
+              </li>
+            )}
+
+            {user?.roles === "userStandard" && (
+              <li>
+                <Link to="/myAppointments">My Appointments</Link>
+              </li>
+            )}
+            {user?.roles === "userStandard" && (
+              <li>
+                <Link to="/appointments">Appointments</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

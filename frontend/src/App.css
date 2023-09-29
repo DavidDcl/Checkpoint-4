@@ -18,8 +18,24 @@ body,
   width: 100%;
 }
 
+body {
+  overscroll-behavior: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10%;
+}
+.react-calendar {
+  min-width: 80%;
 }
